@@ -28,7 +28,7 @@ const TvCard = ({ item, navigation }) => {
                         <Text py={1}>Popularity: {popularity}</Text>
                         <Button
                             w="80%"
-                            onPress={() => navigation.navigate('IndividualCard', { id: id })}
+                            onPress={() => navigation.navigate('IndividualTV', { id: id })}
                         >
                             More Details
                         </Button>

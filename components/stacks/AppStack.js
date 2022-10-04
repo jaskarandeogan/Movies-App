@@ -1,12 +1,12 @@
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import IndividualCard from '../listcards/individualcard/IndividualCard';
+import IndividualMovie from '../listcards/individualcard/IndividualMovie';
+import IndividualTV from '../listcards/individualcard/IndividualTV';
 import IndexScreen from '../screens/IndexScreen';
 
 const Stack = createStackNavigator();
 
 const AppStack = ({ navigation }) => {
-  console.log(navigation)
   return (
     <NavigationContainer>
       <Stack.Navigator>
@@ -23,12 +23,17 @@ const AppStack = ({ navigation }) => {
             }
           }} />
 
-      </Stack.Navigator>
       <Stack.Screen
-          name="MovieCard"
-          component={IndividualCard}
+          name="IndividualMovie"
+          component={IndividualMovie}
           options={{ title: "Movie Item" }}
-        ></Stack.Screen>
+        />
+        <Stack.Screen
+          name="IndividualTV"
+          component={IndividualTV}
+          options={{ title: "Movie Item" }}
+        />
+      </Stack.Navigator>
 
     </NavigationContainer>
   );

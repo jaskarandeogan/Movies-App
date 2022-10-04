@@ -1,6 +1,4 @@
 import { Box, Button, Center, Divider, Heading, HStack, Image, Text, VStack } from 'native-base'
-import { getMovieById } from '../../services/api_endpoints';
-
 const ListCard = ( {navigation, item }) => {
     const { id, poster_path, title, release_date, popularity } = item
     // console.log("ID", getMovieById(id));
@@ -30,7 +28,7 @@ const ListCard = ( {navigation, item }) => {
                         <Text py={1}>Popularity: {popularity}</Text>
                         <Button
                             w="80%"
-                            onPress={() => navigation.navigate('IndividualCard', { id: id })}
+                            onPress={() => navigation.navigate('IndividualMovie', { id: id })}
                         >
                             More Details
                         </Button>
