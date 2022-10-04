@@ -6,16 +6,16 @@ const TvCard = ({ item, navigation }) => {
     const { id, poster_path, name, first_air_date, popularity } = item
     // console.log("poster", item.poster_path);
     return (
-        <Box maxWidth={"90%"} borderY={2}>
-            <Center>
+        <Box maxWidth={"90%"} borderY={2} flex={1} flexDirection={"row"}>
+            <Center >
                 <HStack px={2} py={4}>
-                    <VStack px={4}>
-                        {poster_path === null ? (
+                    <VStack px={4} >
+                        {poster_path === undefined ? (
                             <></>
                         ) : (
                             <Image
                                 source={{
-                                    uri: `https://image.tmdb.org/t/p/original/${poster_path}`,
+                                    uri: `https://image.tmdb.org/t/p/original${poster_path}`,
                                 }}
                                 alt={name}
                                 size="xl"
@@ -23,11 +23,11 @@ const TvCard = ({ item, navigation }) => {
                         )}
                     </VStack>
                     <VStack >
-                        <Text py={1} bold isTruncated>{name}</Text>
+                        <Text py={1} bold flexWrap={"wrap"}>{name}</Text>
                         <Text py={1}>Release Date: {first_air_date}</Text>
                         <Text py={1}>Popularity: {popularity}</Text>
                         <Button
-                            w="80%"
+                            w="150px"
                             onPress={() => navigation.navigate('IndividualTV', { id: id })}
                         >
                             More Details

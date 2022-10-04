@@ -26,7 +26,7 @@ const IndividualTV = ({ route }) => {
         </Text>
         <VStack>
           <VStack paddingBottom={5}>
-            {tv?.poster_path === null ? (
+            {tv?.poster_path === undefined ? (
               <></>
             ) : (
               <Image

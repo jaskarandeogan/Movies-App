@@ -8,7 +8,6 @@ const IndividualMovie = ({ route }) => {
   const [movie, setMovie] = React.useState({})
   // console.log("movie id ", movie>);
 
-
   useEffect(() => {
     getMovieById(id).then((response) => {
       setMovie(response)
@@ -22,12 +21,12 @@ const IndividualMovie = ({ route }) => {
     <Box>
       <Center>
         {console.log(movie.poster_path)}
-          <Text py={5} fontSize={24} fontWeight={600}>
+          <Text py={5} fontSize={24} fontWeight={600} >
             {movie?.title}
           </Text>
         <VStack>
-          <VStack paddingBottom={5}>
-            {movie?.poster_path === null ? (
+          <VStack paddingBottom={5} >
+            {movie?.poster_path === undefined ? (
               <></>
             ) : (
               <Image
@@ -41,7 +40,7 @@ const IndividualMovie = ({ route }) => {
             )}
           </VStack>
         </VStack>
-        <Text px={"5rem"}>
+        <Text  px={"5rem"}>
           {movie?.overview}
         </Text>
         <HStack px={10} py={5}>

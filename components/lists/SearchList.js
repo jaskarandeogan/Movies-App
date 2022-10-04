@@ -4,7 +4,7 @@ import ListCard from "../listcards/SearchCard"
 const SearchList = (props) => {
     const { navigation, searchItems, type } = props
     console.log("Search type",type)
-    console.log("Search List",searchItems)
+    console.log("Search List")
     return (
         <FlatList  
         data={searchItems}

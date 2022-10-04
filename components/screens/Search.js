@@ -6,7 +6,7 @@ import { seacrhGetMovie } from '../../services/api_endpoints'
 import SearchList from '../lists/SearchList'
 
 const Search = ({ navigation }) => {
-  const [searchData, setSearch] = React.useState("")
+  const [searchData, setSearch] = React.useState("james bond")
   const [type, setType] = React.useState("movie")
   const [searchItems, setSearchItems] = React.useState([])
 
