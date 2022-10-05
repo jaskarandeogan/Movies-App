@@ -47,7 +47,7 @@ export const getTVById = async (id) => {
 
 // get search apis data from api
 
-export const seacrhGetMovie = async (search, type) => {
+export const seacrhGetShowing = async (search, type) => {
     try {
         const response = await apiHandler({
             url: `search/${type}`,
@@ -55,7 +55,7 @@ export const seacrhGetMovie = async (search, type) => {
             query: search
         })
         // console.log('response', response)
-        return response
+        return response?.results
     } catch (error) {
         console.log('api error', error)
         return error

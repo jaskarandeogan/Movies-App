@@ -1,38 +1,48 @@
 import { View, Text } from 'react-native'
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import SearchForm from '../forms/SearchForm'
-import { Center, Container } from 'native-base'
-import { seacrhGetMovie } from '../../services/api_endpoints'
+import { Center, Container, Box } from 'native-base'
+import { seacrhGetShowing } from '../../services/api_endpoints'
 import SearchList from '../lists/SearchList'
 
 const Search = ({ navigation }) => {
-  const [searchData, setSearch] = React.useState("james bond")
-  const [type, setType] = React.useState("movie")
-  const [searchItems, setSearchItems] = React.useState([])
+  const [searchData, setSearch] = useState("")
+  const [type, setType] = useState("")
+  const [searchItems, setSearchItems] = useState([])
 
   const handleSearch = (formData, selected) => {
     setSearch(formData)
     setType(selected)
 
-    seacrhGetMovie(searchData, type).then((response) => {
-      setSearchItems(response)
-      // console.log("Search", response)
+    seacrhGetShowing(formData, selected).then((response) => {
+      if(type === "multi"){
+        const list = response;
+        list.filter(item => item.media_type === "movie" || item.media_type === "tv")
+        setSearchItems(list)
+      } else {
+        setSearchItems(response)
+      }
     }).catch((error) => {
       console.log("search js", error);
     })
 
   }
 
+
+
   return (
-    <Container width="90%">
-      <Center px={4}>
+    <Box style={{flex: 1}} px={5}>
         <SearchForm handleSearch={handleSearch} searchItems={searchItems} navigation={navigation} />
 
-        <SearchList searchItems={searchItems} navigation={navigation} type={type} />
+        {searchData ? 
+          <SearchList searchItems={searchItems} navigation={navigation} type={type}/> 
+          : 
+          <Text style={{color:"red"}}>*Type something for Search </Text>
+        }
 
-      </Center>
+        {/* <SearchList searchItems={searchItems} navigation={navigation} type={type} /> */}
 
-    </Container>
+    </Box>
   )
 }
 

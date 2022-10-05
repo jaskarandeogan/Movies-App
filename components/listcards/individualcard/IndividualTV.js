@@ -5,14 +5,12 @@ import { Box, Button, Center, Divider, Heading, HStack, Image, Text, VStack } fr
 const IndividualTV = ({ route }) => {
   const { navigation, id } = route.params
   const [tv, setTV] = React.useState({})
-  console.log("tv id ", id);
+
 
   useEffect(() => {
     getTVById(id).then((response) => {
       setTV(response)
-      console.log(response);
-
-    }).catch((error) => {
+      }).catch((error) => {
       console.log(error);
     })
   }, []);
@@ -20,7 +18,6 @@ const IndividualTV = ({ route }) => {
   return (
     <Box>
       <Center>
-        {console.log(tv.poster_path)}
         <Text py={5} fontSize={24} fontWeight={600}>
           {tv?.name}
         </Text>

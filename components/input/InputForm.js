@@ -18,6 +18,7 @@ import { Ionicons } from '@expo/vector-icons'
 const InputForm = (props) => {
     // const [formData, setData] = useState({})
     // console.log(formData)
+   
 
     return (
         <Box ml={6}>
@@ -30,9 +31,11 @@ const InputForm = (props) => {
                     bg='gray.200'
                     width='100%'
                     onChangeText={(value) => props.handleInputChange(value)}
+          
                     InputLeftElement={
-                      <Icon size={5} ml={2} color='gray.400' as={<Ionicons name='ios-search' />} />
+                      <Icon size={5} ml={2}  as={<Ionicons name='ios-search' />} />
                     }
+
                   />
                 </HStack>
                 </VStack>

@@ -5,11 +5,11 @@ const ListCard = ( {navigation, item }) => {
     // console.log(navigation)
 
     return (
-        <Box maxWidth={"90%"} flex={1} flexDirection={"row"} >
+        <Box maxWidth={"100%"} flex={1} flexDirection={"row"} >
             <Center>
                 <HStack px={2} py={4}>
                     <VStack px={4}>
-                        {poster_path === null ? (
+                        {poster_path === undefined ? (
                             <></>
                         ) : (
                             <Image
@@ -24,6 +24,7 @@ const ListCard = ( {navigation, item }) => {
                     <VStack>
                         <Text py={1} bold isTruncated >{title}</Text>
                         {/* <Text py={1}>id {id}</Text> */}
+                         
                         <Text py={1}>Release Date: {release_date}</Text>
                         <Text py={1}>Popularity: {popularity}</Text>
                         <Button
