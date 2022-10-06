@@ -9,7 +9,7 @@ const TvCard = ({ item, navigation }) => {
         <Box maxWidth={"90%"} borderY={2} flex={1} flexDirection={"row"}>
             <Center >
                 <HStack px={2} py={4}>
-                    <VStack px={4} >
+                    <VStack px={4} w={130} h={150}>
                         {poster_path === undefined ? (
                             <></>
                         ) : (
